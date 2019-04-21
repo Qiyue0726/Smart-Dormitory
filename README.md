@@ -1,1 +1,2 @@
 # Smart-Dormitory
+这是我的毕业设计，是一个基于Arduino的物联网项目，硬件层使用Arduino进行开发，通过WiFi模块ESP8266和服务器进行通信，服务器后端基于Spring Boot和Mybatis进行开发，应用层分为宿舍管理员的网页端和住宿学生的移动端，网页端使用Bootstrap的Admin LTE模板，移动端使用安卓原生和HTML混合开发。
