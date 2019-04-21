@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity">
+
+<android.support.v4.view.ViewPager
+    android:id="@+id/fragment_vp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@+id/tabs_rg" />
+
+<RadioGroup
+    android:id="@+id/tabs_rg"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:layout_alignParentBottom="true"
+    android:background="#ffff"
+    android:orientation="horizontal">
+
+    <RadioButton
+        android:id="@+id/today_tab"
+        style="@style/Custom.TabRadioButton"
+        android:checked="true"
+        android:drawableTop="@drawable/tab_control_selector"
+        android:text="Home" />
+
+    <RadioButton
+        android:id="@+id/record_tab"
+        style="@style/Custom.TabRadioButton"
+        android:drawableTop="@drawable/tab_chart_selector"
+        android:text="Chart" />
+
+    <RadioButton
+        android:id="@+id/contact_tab"
+        style="@style/Custom.TabRadioButton"
+        android:drawableTop="@drawable/tab_service_selector"
+        android:text="Service" />
+
+    <RadioButton
+        android:id="@+id/settings_tab"
+        style="@style/Custom.TabRadioButton"
+        android:drawableTop="@drawable/tab_me_selector"
+        android:text="Me" />
+</RadioGroup>
+
+</RelativeLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sakura.dormitory.mapper.deviceStatusMapper">
+  <resultMap id="BaseResultMap" type="com.sakura.dormitory.pojo.deviceStatus">
+    <id column="macId" jdbcType="INTEGER" property="macid" />
+    <result column="room" jdbcType="VARCHAR" property="room" />
+    <result column="all_status" jdbcType="INTEGER" property="allStatus" />
+    <result column="light_status" jdbcType="INTEGER" property="lightStatus" />
+    <result column="window_status" jdbcType="INTEGER" property="windowStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    macId, room, all_status, light_status, window_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from devicestatus
+    where macId = #{macid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from devicestatus
+    where macId = #{macid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sakura.dormitory.pojo.deviceStatus">
+    insert into devicestatus (macId, room, all_status, 
+      light_status, window_status)
+    values (#{macid,jdbcType=INTEGER}, #{room,jdbcType=VARCHAR}, #{allStatus,jdbcType=INTEGER}, 
+      #{lightStatus,jdbcType=INTEGER}, #{windowStatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sakura.dormitory.pojo.deviceStatus">
+    insert into devicestatus
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="macid != null">
+        macId,
+      </if>
+      <if test="room != null">
+        room,
+      </if>
+      <if test="allStatus != null">
+        all_status,
+      </if>
+      <if test="lightStatus != null">
+        light_status,
+      </if>
+      <if test="windowStatus != null">
+        window_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="macid != null">
+        #{macid,jdbcType=INTEGER},
+      </if>
+      <if test="room != null">
+        #{room,jdbcType=VARCHAR},
+      </if>
+      <if test="allStatus != null">
+        #{allStatus,jdbcType=INTEGER},
+      </if>
+      <if test="lightStatus != null">
+        #{lightStatus,jdbcType=INTEGER},
+      </if>
+      <if test="windowStatus != null">
+        #{windowStatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="update" parameterType="com.sakura.dormitory.pojo.deviceStatus">
+    update devicestatus set light_status = #{lightStatus,jdbcType=INTEGER},window_status = #{windowStatus,jdbcType=INTEGER},
+    all_status = #{allStatus,jdbcType=INTEGER},room = #{room,jdbcType=VARCHAR}
+    where macId = #{macid,jdbcType=INTEGER}
+  </update>
+  <update id="appUpdate">
+    update devicestatus set light_status = #{light_status},window_status = #{window_status}
+    where macId = #{macId}
+  </update>
+</mapper>

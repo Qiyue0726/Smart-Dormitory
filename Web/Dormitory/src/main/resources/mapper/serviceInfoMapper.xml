@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sakura.dormitory.mapper.serviceInfoMapper">
+  <resultMap id="BaseResultMap" type="com.sakura.dormitory.pojo.serviceInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="room" jdbcType="VARCHAR" property="room" />
+    <result column="serviceType" jdbcType="INTEGER" property="servicetype" />
+    <result column="serviceTitle" jdbcType="VARCHAR" property="servicetitle" />
+    <result column="serviceData" jdbcType="VARCHAR" property="servicedata" />
+    <result column="serviceStatus" jdbcType="INTEGER" property="servicestatus" />
+    <result column="systemStatus" jdbcType="INTEGER" property="systemstatus" />
+    <result column="chuliTime" jdbcType="TIMESTAMP" property="chulitime" />
+    <result column="systemTime" jdbcType="TIMESTAMP" property="systemtime" />
+    <result column="reply" jdbcType="VARCHAR" property="reply" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, room, serviceType, serviceTitle, serviceData, serviceStatus, systemStatus, chuliTime, 
+    systemTime, reply
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from serviceinfo
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from serviceinfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sakura.dormitory.pojo.serviceInfo">
+    insert into serviceinfo (id, room, serviceType, 
+      serviceTitle, serviceData, serviceStatus, 
+      systemStatus, chuliTime, systemTime, 
+      reply)
+    values (#{id,jdbcType=INTEGER}, #{room,jdbcType=VARCHAR}, #{servicetype,jdbcType=INTEGER}, 
+      #{servicetitle,jdbcType=VARCHAR}, #{servicedata,jdbcType=VARCHAR}, #{servicestatus,jdbcType=INTEGER}, 
+      #{systemstatus,jdbcType=INTEGER}, #{chulitime,jdbcType=TIMESTAMP}, #{systemtime,jdbcType=TIMESTAMP}, 
+      #{reply,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sakura.dormitory.pojo.serviceInfo">
+    insert into serviceinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="room != null">
+        room,
+      </if>
+      <if test="servicetype != null">
+        serviceType,
+      </if>
+      <if test="servicetitle != null">
+        serviceTitle,
+      </if>
+      <if test="servicedata != null">
+        serviceData,
+      </if>
+      <if test="servicestatus != null">
+        serviceStatus,
+      </if>
+      <if test="systemstatus != null">
+        systemStatus,
+      </if>
+      <if test="chulitime != null">
+        chuliTime,
+      </if>
+      <if test="systemtime != null">
+        systemTime,
+      </if>
+      <if test="reply != null">
+        reply,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="room != null">
+        #{room,jdbcType=VARCHAR},
+      </if>
+      <if test="servicetype != null">
+        #{servicetype,jdbcType=INTEGER},
+      </if>
+      <if test="servicetitle != null">
+        #{servicetitle,jdbcType=VARCHAR},
+      </if>
+      <if test="servicedata != null">
+        #{servicedata,jdbcType=VARCHAR},
+      </if>
+      <if test="servicestatus != null">
+        #{servicestatus,jdbcType=INTEGER},
+      </if>
+      <if test="systemstatus != null">
+        #{systemstatus,jdbcType=INTEGER},
+      </if>
+      <if test="chulitime != null">
+        #{chulitime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="systemtime != null">
+        #{systemtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reply != null">
+        #{reply,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="select" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    *
+    from serviceinfo
+    where room = #{room,jdbcType=VARCHAR} and systemStatus = 1 and serviceStatus = 1 limit 1
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from serviceinfo
+    where systemStatus = 1 and serviceStatus = 1
+  </select>
+  <select id="selectFinish" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from serviceinfo
+    where systemStatus = 0
+  </select>
+  <select id="selectIgnore" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from serviceinfo
+    where serviceStatus = 0
+  </select>
+  <update id="solve">
+    update serviceinfo set systemStatus = 0,reply = "已完成处理!"
+    where id = #{id}
+  </update>
+  <update id="ignore">
+      update serviceinfo set serviceStatus = 0
+      where id = #{id}
+  </update>
+  <select id="androidSelect" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from serviceinfo
+    where room = #{room} and systemStatus = 1
+  </select>
+  <insert id="add" parameterType="com.sakura.dormitory.pojo.serviceInfo">
+    insert into serviceinfo (room,serviceTitle,serviceData,serviceType,serviceStatus,systemStatus,systemTime,reply)
+    value (#{room},#{title},#{content},#{type},1,1,now(),"正在处理中...")
+  </insert>
+  <update id="recovery">
+      update serviceinfo set serviceStatus = 1
+      where id = #{id}
+  </update>
+  <update id="reply">
+    update serviceinfo set serviceStatus = 0,reply = #{reply}
+    where id = #{id}
+  </update>
+  <select id="getReply" parameterType="java.lang.Integer" resultType="java.lang.String">
+    select reply
+    from serviceinfo
+    where id = #{id}
+  </select>
+</mapper>

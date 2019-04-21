@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>管理员登录</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/bower_components/Ionicons/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="/plugins/iCheck/square/blue.css">
+    <!--表单验证-->
+    <link rel="/dist/css/bootstrapValidator.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[endif]-->
+
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+
+<body class="hold-transition login-page">
+<div style="width:360px;margin:0 auto; padding-top: 8%">
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+        <div class="login-logo" style="padding-top:30px">
+            <b>Login</b>
+        </div>
+        <div style="padding-top: 40px;">
+            <form id="contactForm" action="login" method="post"
+                  data-bv-message="This value is not valid"
+                  data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+                  data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+                  data-bv-feedbackicons-validating="glyphicon glyphicon-refresh" />
+                <div class="form-group has-feedback">
+                    <input type="text" id="username" name="userName" class="form-control" placeholder="Username" style="text-indent: 15px"
+                           data-bv-trigger="blur"
+                           data-bv-message="用户名不能为空"
+                           required data-bv-notempty-message="用户名不能为空"
+                           pattern="[a-zA-Z0-9_\.]+" data-bv-regexp-message="The Username can only consist of alphabetical, number, dot and underscore"
+                           minlength="5" data-bv-stringlength-message="用户名不能少于5个字符"/>
+                    <span class="glyphicon glyphicon-user" style="position:absolute;top:0;left:0;z-index:2;display:block;width:34px;height:34px;line-height:34px;text-align:center;pointer-events:none"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" style="text-indent: 15px"
+                           data-bv-trigger="blur"
+                           data-bv-message="密码不能为空"
+                           required data-bv-notempty-message="密码不能为空"
+                           pattern="[a-zA-Z0-9_\.]+" data-bv-regexp-message="The Password can only consist of alphabetical, number, dot and underscore"
+                           minlength="8" data-bv-stringlength-message="密码不能少于8个字符"/>
+                    <span class="glyphicon glyphicon-lock" style="position:absolute;top:0;left:0;z-index:2;display:block;width:34px;height:34px;line-height:34px;text-align:center;pointer-events:none"></span>
+                </div>
+
+                <!--<div class="selfDiv" style="width: 600px;margin: 0 auto;">-->
+                    <div class="verify-wrap" id="verify-wrap"></div>
+                <!--</div>-->
+
+                <div class="row" style="padding-top:50px">
+                    <div class="col-xs-8">
+                        <div class="checkbox icheck">
+                            <label>
+                                <input type="checkbox" id="ck_rmbUser" checked> Remember Me
+                            </label>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-xs-4">
+                        <button type="submit" id="login" class="btn btn-primary btn-block btn-flat" onclick="sava()">Sign In</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- /.login-box-body -->
+<!-- /.login-box -->
+</div>
+<!-- jQuery 3 -->
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- iCheck -->
+<script src="/plugins/iCheck/icheck.min.js"></script>
+<script src="/js/jq-slideVerify.js"></script>
+<script src="/dist/js/bootstrapValidator.min.js"></script>
+<script src="/dist/js/language/zh_CN.js"></script>
+<script src="/js/jquery.cookie.js"></script>
+<script src="/js/login.js"></script>
+</body>
+
+</html>

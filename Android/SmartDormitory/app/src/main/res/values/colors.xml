@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#DB4D6D</color>
+    <color name="colorPrimaryDark">#DB4D6D</color>
+    <color name="colorAccent">#DB4D6D</color>
+
+    <color name="redStatus">#DB4D6D</color>
+
+    <color name="twitter_primary_color">#8A6BBE</color>
+    <color name="twitter_secondary_color">#B28FCE</color>
+
+    <color name="add_one">#A5DEE4</color>
+    <color name="add_two">#33A6B8</color>
+
+    <color name="login_one">#F9BF45</color>
+    <color name="login_two">#FFb11B</color>
+
+    <color name="logout_one">#A5DEE4</color>
+    <color name="logout_two">#78C2C4</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="dark">#424242</color>
+    <color name="red">#FFD4212A</color>
+    <color name="grey">#8C8C8C</color>
+    <color name="line">#EEEEEE</color>
+    <color name="background">#F9F9FA</color>
+
+    <color name="greyBackground">#FFCFCFCF</color>
+</resources>

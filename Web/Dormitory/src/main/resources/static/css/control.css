@@ -1,0 +1,74 @@
+/*按钮颜色 BEGIN */
+
+.c-green.btn {
+    color: #FFFFFF;
+    background-color: #5CBB5C;
+}
+
+.c-green.btn.btn:hover,
+.c-green.btn.btn:focus,
+.c-green.btn:active,
+.c-green.btn.active {
+    color: #FFFFFF;
+    background-color: #71C671;
+}
+
+.c-blue.btn {
+    color: #FFFFFF;
+    background-color: #337AB7;
+}
+
+.c-blue.btn.btn:hover,
+.c-blue.btn.btn:focus,
+.c-blue.btn:active,
+.c-blue.btn.active {
+    color: #FFFFFF;
+    background-color: #1874CD;
+}
+
+.c-gray-btn {
+    background-color: #d7d7d7;
+    color: #999;
+}
+
+.c-cyan.btn {
+    color: #FFFFFF;
+    background-color: #5BC0DE;
+}
+
+.c-cyan.btn.btn:hover,
+.c-cyan.btn.btn:focus,
+.c-cyan.btn:active,
+.c-cyan.btn.active {
+    color: #FFFFFF;
+    background-color: #00CED1;
+}
+
+.c-darkblue.btn {
+    color: #FFFFFF;
+    background-color: #6A7FEE;
+}
+
+.c-darkblue.btn.btn:hover,
+.c-darkblue.btn.btn:focus,
+.c-darkblue.btn:active,
+.c-darkblue.btn.active {
+    color: #FFFFFF;
+    background-color: #6A5ACD;
+}
+
+.c-yellow.btn {
+    color: #FFFFFF;
+    background-color: #F0AD41;
+}
+
+.c-yellow.btn.btn:hover,
+.c-yellow.btn.btn:focus,
+.c-yellow.btn:active,
+.c-yellow.btn.active {
+    color: #FFFFFF;
+    background-color: #FFA500;
+}
+
+
+/*按钮颜色 END */

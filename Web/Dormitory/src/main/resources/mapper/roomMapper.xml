@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sakura.dormitory.mapper.roomMapper">
+  <resultMap id="BaseResultMap" type="com.sakura.dormitory.pojo.room">
+    <id column="room" jdbcType="VARCHAR" property="room" />
+    <result column="macId" jdbcType="INTEGER" property="macid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    room, macId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from room
+    where room = #{room,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from room
+    where room = #{room,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sakura.dormitory.pojo.room">
+    insert into room (room, macId)
+    values (#{room,jdbcType=VARCHAR}, #{macid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sakura.dormitory.pojo.room">
+    insert into room
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="room != null">
+        room,
+      </if>
+      <if test="macid != null">
+        macId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="room != null">
+        #{room,jdbcType=VARCHAR},
+      </if>
+      <if test="macid != null">
+        #{macid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="select" parameterType="java.lang.Integer" resultType="java.lang.String">
+    select
+    room
+    from room
+    where macId = #{id}
+  </select>
+  <select id="selectId" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select
+    macId
+    from room
+    where room = #{room}
+  </select>
+</mapper>

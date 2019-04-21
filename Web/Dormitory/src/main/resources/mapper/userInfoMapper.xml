@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sakura.dormitory.mapper.userInfoMapper">
+  <resultMap id="BaseResultMap" type="com.sakura.dormitory.pojo.userInfo">
+    <id column="studentId" jdbcType="INTEGER" property="studentid" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="INTEGER" property="password" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="cardId" jdbcType="BIGINT" property="cardid" />
+    <result column="room" jdbcType="VARCHAR" property="room" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    studentId, userName, password, phone, cardId, room
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from userinfo
+    where studentId = #{studentid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from userinfo
+    where studentId = #{studentid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sakura.dormitory.pojo.userInfo">
+    insert into userinfo (studentId, userName, password, 
+      phone, cardId, room)
+    values (#{studentid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=INTEGER}, 
+      #{phone,jdbcType=VARCHAR}, #{cardid,jdbcType=BIGINT}, #{room,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sakura.dormitory.pojo.userInfo">
+    insert into userinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="studentid != null">
+        studentId,
+      </if>
+      <if test="username != null">
+        userName,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="cardid != null">
+        cardId,
+      </if>
+      <if test="room != null">
+        room,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="studentid != null">
+        #{studentid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="cardid != null">
+        #{cardid,jdbcType=BIGINT},
+      </if>
+      <if test="room != null">
+        #{room,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

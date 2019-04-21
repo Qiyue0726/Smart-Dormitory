@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="generatorConfig.properties" />
+    <!--mysql 连接数据库jar 这里选择自己本地位置-->
+    <classPathEntry location = "${drive.class.path}" />
+    <context id="mybatisGenerator" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+        <jdbcConnection driverClass="${jdbc.driver}"
+                        connectionURL="${jdbc.url}"
+                        userId="${jdbc.username}"
+                        password="${jdbc.password}">
+        </jdbcConnection>
+
+        <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
+            NUMERIC 类型解析为java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+
+        <!--配置生成的实体包
+            targetPackage：生成的实体包位置，默认存放在src目录下
+            targetProject：目标工程名
+        -->
+
+        <!-- targetProject:生成PO类的位置 -->
+        <javaModelGenerator targetPackage="com.sakura.dormitory.pojo"
+                            targetProject=".\src\main\java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+
+        <!-- 实体包对应映射文件位置及名称，默认存放在src目录下 -->
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject=".\src\main\resources">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+
+
+        <!-- targetPackage：mapper接口生成的位置 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.sakura.dormitory.mapper"
+                             targetProject=".\src\main\java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+        <!-- 指定数据库表 -->
+        <!--<table tableName="userinfo" domainObjectName="userInfo" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false"  enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableUpdateByPrimaryKey="false">-->
+            <!--&lt;!&ndash;<generatedKey column="sid" sqlStatement="${table.primaryKey}"/>&ndash;&gt;-->
+            <!--&lt;!&ndash; 需要忽略的列true 大小写完全匹配，false 忽略大小写匹配 &ndash;&gt;-->
+            <!--&lt;!&ndash;<ignoreColumn column="PLAN_ID"  delimitedColumnName="true" />&ndash;&gt;-->
+        <!--</table>-->
+        <!--<table tableName="sensordata" domainObjectName="sensorData" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false"  enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableUpdateByPrimaryKey="false">-->
+            <!--&lt;!&ndash;<generatedKey column="sid" sqlStatement="${table.primaryKey}"/>&ndash;&gt;-->
+            <!--&lt;!&ndash; 需要忽略的列true 大小写完全匹配，false 忽略大小写匹配 &ndash;&gt;-->
+            <!--&lt;!&ndash;<ignoreColumn column="PLAN_ID"  delimitedColumnName="true" />&ndash;&gt;-->
+        <!--</table>-->
+        <!--<table tableName="manager" domainObjectName="manager" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false"  enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableUpdateByPrimaryKey="false">-->
+            <!--&lt;!&ndash;<generatedKey column="sid" sqlStatement="${table.primaryKey}"/>&ndash;&gt;-->
+            <!--&lt;!&ndash; 需要忽略的列true 大小写完全匹配，false 忽略大小写匹配 &ndash;&gt;-->
+            <!--&lt;!&ndash;<ignoreColumn column="PLAN_ID"  delimitedColumnName="true" />&ndash;&gt;-->
+        <!--</table>-->
+        <!--<table tableName="devicestatus" domainObjectName="deviceStatus" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false"  enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableUpdateByPrimaryKey="false">-->
+            <!--&lt;!&ndash;<generatedKey column="sid" sqlStatement="${table.primaryKey}"/>&ndash;&gt;-->
+            <!--&lt;!&ndash; 需要忽略的列true 大小写完全匹配，false 忽略大小写匹配 &ndash;&gt;-->
+            <!--&lt;!&ndash;<ignoreColumn column="PLAN_ID"  delimitedColumnName="true" />&ndash;&gt;-->
+        <!--</table>-->
+        <!--<table tableName="room" domainObjectName="room" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false"  enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableUpdateByPrimaryKey="false">-->
+            <!--&lt;!&ndash;<generatedKey column="sid" sqlStatement="${table.primaryKey}"/>&ndash;&gt;-->
+            <!--&lt;!&ndash; 需要忽略的列true 大小写完全匹配，false 忽略大小写匹配 &ndash;&gt;-->
+            <!--&lt;!&ndash;<ignoreColumn column="PLAN_ID"  delimitedColumnName="true" />&ndash;&gt;-->
+        <!--</table>-->
+        <table tableName="serviceinfo" domainObjectName="serviceInfo" enableDeleteByExample="false"
+               enableSelectByExample="false"  enableCountByExample="false" enableUpdateByExample="false"
+               enableUpdateByPrimaryKey="false">
+            <!--<generatedKey column="sid" sqlStatement="${table.primaryKey}"/>-->
+            <!-- 需要忽略的列true 大小写完全匹配，false 忽略大小写匹配 -->
+            <!--<ignoreColumn column="PLAN_ID"  delimitedColumnName="true" />-->
+        </table>
+
+        <!--&lt;!&ndash;有些表的字段需要指定java类型&ndash;&gt;-->
+         <!--<table schema="" tableName="userName">-->
+            <!--<columnOverride column="userName" javaType="String" />-->
+        <!--</table>-->
+        <!--<table schema="" tableName="userName">-->
+            <!--<columnOverride column="cardId" javaType="Long" />-->
+        <!--</table>-->
+    </context>
+</generatorConfiguration>
+
+
+

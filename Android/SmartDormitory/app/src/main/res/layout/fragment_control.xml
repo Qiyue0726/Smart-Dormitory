@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.ControlFragment"
+    android:id="@+id/control">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="125dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/lightButton"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.github.zagum.switchicon.SwitchIconView
+                android:id="@+id/lightView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="8dp"
+                android:scaleType="fitXY"
+                app:si_tint_color="#FBE251"
+                app:srcCompat="@mipmap/control_light" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/control_light" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/windowButton"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.github.zagum.switchicon.SwitchIconView
+                android:id="@+id/windowView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="8dp"
+                android:scaleType="fitXY"
+                app:si_tint_color="#66BAB7"
+                app:srcCompat="@mipmap/control_window" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/control_window" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginTop="366dp">
+
+        <com.varunest.sparkbutton.SparkButton
+            android:id="@+id/doorButton"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_gravity="center"
+            android:clickable="false"
+            app:sparkbutton_activeImage="@mipmap/control_door"
+            app:sparkbutton_pressOnTouch="false"
+            app:sparkbutton_primaryColor="@color/twitter_primary_color"
+            app:sparkbutton_secondaryColor="@color/twitter_secondary_color" />
+        <TextView
+            android:layout_marginTop="-20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/control_open" />
+    </LinearLayout>
+
+
+</FrameLayout>

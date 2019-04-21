@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.MeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="#f4a7b9"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:src="@mipmap/head"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="20sp"
+                android:text="请先进行登录"
+                android:id="@+id/userName"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <com.varunest.sparkbutton.SparkButton
+            android:id="@+id/btn_login"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_gravity="center"
+            android:clickable="false"
+            app:sparkbutton_activeImage="@mipmap/login"
+            app:sparkbutton_pressOnTouch="false"
+            app:sparkbutton_primaryColor="@color/login_one"
+            app:sparkbutton_secondaryColor="@color/login_two" />
+
+            <com.varunest.sparkbutton.SparkButton
+                android:id="@+id/btn_logout"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_gravity="center"
+                android:clickable="false"
+                app:sparkbutton_activeImage="@mipmap/logout"
+                app:sparkbutton_pressOnTouch="false"
+                android:visibility="gone"
+                app:sparkbutton_primaryColor="@color/logout_one"
+                app:sparkbutton_secondaryColor="@color/logout_two" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>
